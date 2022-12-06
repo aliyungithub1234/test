@@ -8,6 +8,13 @@ import traceback
 import sys
 
 
+def get_screenshot(flag):
+    icp_image_base64 = driver.get_screenshot_as_base64()
+    imgdata = base64.b64decode(icp_image_base64)
+    #将图片保存为文件
+    with open(str(flag)+".jpg",'wb') as f:
+        f.write(imgdata)
+
 def get_chrome_driver():
     from selenium import webdriver
     options = webdriver.ChromeOptions()
