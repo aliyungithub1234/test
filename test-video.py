@@ -11,8 +11,8 @@ import sys
 def get_chrome_driver():
     from selenium import webdriver
     options = webdriver.ChromeOptions()
-    #options.add_argument("headless")
-    #options.add_argument('--no-sandbox')
+    options.add_argument("headless")
+    options.add_argument('--no-sandbox')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
     return webdriver.Chrome(options=options)
