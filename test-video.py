@@ -56,6 +56,7 @@ def play_one(video_url):
         flag = 0
         while True:
             flag +=2
+            get_screenshot(flag)
             if flag>Video_Time:
                 # 看完视频
                 if currentTime > Video_Time:
