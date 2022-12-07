@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 import traceback
 import sys
+import argparse
 
 
 def get_screenshot(flag):
@@ -74,4 +75,10 @@ def play_one(video_url):
 
     return None
 
-play_one('https://www.bilibili.com/video/BV16Y411Z7AH/')
+if __name__ == '__main__':
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--video_url", dest='video_url', help="视频链接")
+    
+    args = parser.parse_args()
+    play_one(args.video_url)
