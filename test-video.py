@@ -10,7 +10,7 @@ import argparse
 import base64
 
 
-def get_screenshot(flag):
+def get_screenshot(driver,flag):
     icp_image_base64 = driver.get_screenshot_as_base64()
     imgdata = base64.b64decode(icp_image_base64)
     #将图片保存为文件
@@ -56,7 +56,7 @@ def play_one(video_url):
         flag = 0
         while True:
             flag +=2
-            get_screenshot(flag)
+            get_screenshot(driver,flag)
             if flag>Video_Time:
                 # 看完视频
                 if currentTime > Video_Time:
