@@ -7,6 +7,7 @@ import time
 import traceback
 import sys
 import argparse
+import base64
 
 
 def get_screenshot(flag):
@@ -81,4 +82,6 @@ if __name__ == '__main__':
     parser.add_argument("--video_url", dest='video_url', help="视频链接")
     
     args = parser.parse_args()
-    play_one(args.video_url)
+    video_url = args.video_url
+    video_url = str(base64.b64decode(video_url),"utf-8")
+    play_one(video_url)
