@@ -47,3 +47,8 @@ jobs:
         run: |
           sudo python test-video.py --video_url ${{ github.event.client_payload.video_url }}
           
+      - name: save_result
+        uses: actions/upload-artifact@v1
+        with:
+          name: result
+          path: /home/runner/work/test/test/
