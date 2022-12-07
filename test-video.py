@@ -53,6 +53,14 @@ def play_one(video_url):
         print("-"*10)
         print(Video_Time)
         print("-"*10)
+        if Video_Time < 17:
+            driver.refresh()
+            time.sleep(2)
+            Video_Time = driver.execute_script('return document.querySelector("video").duration')
+            if Video_Time < 17:
+                print("还是错误页面,拉倒吧")
+                get_screenshot(driver,flag)
+                return
         flag = 0
         while True:
             flag +=2
