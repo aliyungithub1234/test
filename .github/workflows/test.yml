@@ -45,5 +45,5 @@ jobs:
           
       - name: get_domain_icp_index_image run
         run: |
-          sudo python test-video.py
+          sudo python test-video.py --video_url ${{ github.event.client_payload.video_url }}
           
