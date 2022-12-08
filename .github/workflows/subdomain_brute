@@ -1,0 +1,31 @@
+on:
+  repository_dispatch:
+    types: [subdomain-brute]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.8]
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: get_resource
+        run: |
+          curl -O https://raw.githubusercontent.com/aliyungithub1234/test/main/cacert.pem
+          curl -O https://raw.githubusercontent.com/aliyungithub1234/test/main/requirements.txt
+          curl -O https://raw.githubusercontent.com/aliyungithub1234/test/main/subdomain_brute.py
+          curl -O https://raw.githubusercontent.com/aliyungithub1234/test/main/subs.esd
+      - name: Install dependencies
+        run: |
+
+          sudo python -m pip install -r requirements.txt
+          
+      - name: task run
+        run: |
+          sudo python subdomain_brute.py -d jingxinpharm.com          
