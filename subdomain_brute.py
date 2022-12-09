@@ -254,7 +254,7 @@ class EnumSubDomain(threading.Thread):
         # Corotines count
         self.coroutine_count = None
         # 并发太高DNS Server的错误会大幅增加
-        self.coroutine_count_dns = 1000
+        self.coroutine_count_dns = 5000
         self.coroutine_count_request = 100
         # dnsaio resolve timeout
         self.resolve_timeout = 3
